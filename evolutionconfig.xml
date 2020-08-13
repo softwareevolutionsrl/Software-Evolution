@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<root>
+	<host>localhost</host>
+	<database>db_evolution</database>
+	<defaultuser>postgres</defaultuser>
+	<key>letmein</key>
+</root>

@@ -7,14 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Software_Evolution.utils.clases;
+using Software_Evolution.data;
+using Software_Evolution.managers.general;
 
 namespace Software_Evolution
 {
-    public partial class Form1 : Form
+    public partial class Form1 : BaseForm
     {
         public Form1()
         {
             InitializeComponent();
+            ConexionManager manager = ConexionManager.Instance;
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

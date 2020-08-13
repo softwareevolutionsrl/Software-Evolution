@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Software_Evolution.views.general;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Software_Evolution.data;
 
 namespace Software_Evolution
 {
@@ -16,7 +18,8 @@ namespace Software_Evolution
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            ConexionManager.Instance.InitConexion();
+            Application.Run(new Login());
         }
     }
 }
