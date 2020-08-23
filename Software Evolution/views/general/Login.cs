@@ -28,27 +28,27 @@ namespace Software_Evolution.views.general
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "")
+            if (txtusuario.IsEmpty())
             {
                 Mensaje("El usuario no debe estar en blanco");
-                textBox1.Focus();
+                txtusuario.Focus();
                 return;
             }
 
-            if (textBox2.Text == "")
+            if (txtpass.IsEmpty())
             {
                 Mensaje("La contraseña no debe estar en blanco");
-                textBox2.Focus();
+                txtpass.Focus();
                 return;
             }
             try
             {
-                var usuario = manager.AuthUser(textBox1.Text, textBox2.Text);
+                var usuario = manager.AuthUser(txtusuario.Text, txtpass.Text);
                 AppData.Instance.Currentuser = usuario;
 
                 Principal principal = new Principal();
                 principal.Show();
-                this.Close();
+                this.Hide();
                 
             }catch (Exception ex)
             {
@@ -56,6 +56,11 @@ namespace Software_Evolution.views.general
                 return;
             }
             
+        }
+
+        private void txtpass_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

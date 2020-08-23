@@ -12,6 +12,7 @@ namespace Software_Evolution.data
     {
         private readonly static QueryManager _instance = new QueryManager();
         NpgsqlConnection connection ;
+        NpgsqlTransaction tran;
         private bool work;
         private bool isOpen;
 
@@ -64,15 +65,13 @@ namespace Software_Evolution.data
         {
             if(work)
             {
-            throw new Exception("Ya hay una transaccion iniciada");
+                throw new Exception("Ya existe transaccion iniciada");
             }
             try
             {
                 Open();
                 work = true;
-                var cmd = new NpgsqlCommand("BEGIN WORK", connection);
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
+                tran = connection.BeginTransaction();
             }
             catch (NpgsqlException ex)
             {
@@ -89,9 +88,7 @@ namespace Software_Evolution.data
             try
             {
                 work = false;
-                var cmd = new NpgsqlCommand("ROLLBACK", connection);
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
+                tran.Rollback();
                 Close();
             }
             catch (NpgsqlException ex)
@@ -109,9 +106,7 @@ namespace Software_Evolution.data
             try
             {
                 work = false;
-                var cmd = new NpgsqlCommand("COMMIT WORK", connection);
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
+                tran.Commit();
                 Close();
             }
             catch (NpgsqlException ex)
@@ -132,6 +127,177 @@ namespace Software_Evolution.data
                 Close();                
                 return tabla;
             }catch(NpgsqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int Execute(String sql)
+        {
+            try
+            {
+                Open();
+                var cmd = new NpgsqlCommand(sql,connection);
+                var result = cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                Close();
+                return result;
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataTable QueryProcedure(String procedurename,String param)
+        {
+            var cursorname = procedurename.Substring(1);
+            var p = param ?? "";
+            var parameters = $"'{cursorname}'" + ((!p.Equals("")) ? $",{param}" : "");
+            try
+            {
+                BeginWork();
+                NpgsqlCommand cmd = new NpgsqlCommand($"select {procedurename}({parameters})",connection);
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteNonQuery();
+                cmd.CommandText= $"fetch all in \"{cursorname}\"";
+                cmd.CommandType = CommandType.Text;
+                var dr = cmd.ExecuteReader();
+                DataTable result = new DataTable();
+                result.Load(dr);
+                CommitWork();
+                return result;
+            }
+            catch (NpgsqlException ex)
+            {
+                RollBack();
+                throw ex;
+            }
+        }
+
+        public int GetSecuencia(string tipodoc)
+        {
+            try
+            {
+                var sql = $"select get_secuencia('{tipodoc}')";
+                var res = Query(sql);
+                var secuencia = res.Rows[0].Field<int>("get_secuencia");
+                return secuencia;
+            }
+            catch (NpgsqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string GetTipoDoc(int tipo)
+        {
+            try
+            {
+                var sql = $"select f_tipodoc from t_tiposdocumentos where f_indiceordenador ={tipo}";
+                var res = Query(sql);
+                var tipodoc = res.Rows[0].Field<string>("f_tipodoc");
+                return tipodoc;
+            }
+            catch (NpgsqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int CreateRecord(String tabla,Dictionary<String,object> record)
+        {
+            String columns = "";
+            String values = "";
+            foreach (KeyValuePair<string, object> entry in record)
+            {
+                columns += $",{entry.Key}";
+                if(entry.Value is string)
+                {
+                    values += $",'{entry.Value}'";
+                }
+                else if (entry.Value is int)
+                {
+                    values += $",{Convert.ToInt32(entry.Value)}";
+                }
+                else if (entry.Value is double)
+                {
+                    values += $",{Convert.ToDouble(entry.Value)}";
+                }
+                else if (entry.Value is bool)
+                {
+                    values += $",{entry.Value}";
+                }
+                else if (entry.Value is DateTime val)
+                {
+                    values += $",'{val.ToString("yyyyMMdd")}'";
+                }
+                else
+                {
+                    values += $",'{entry.Value}'";
+                }
+            }
+
+            try
+            {
+                var sql = $"insert into {tabla} ({columns.Substring(1)}) values ({values.Substring(1)})";
+                Console.WriteLine(sql);
+                Open();
+                var cmd = new NpgsqlCommand(sql, connection);
+                var result = cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                Close();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int UpdateRecord(String tabla, Dictionary<String, object> record,string whereclause)
+        {          
+            String values = "";
+            foreach (KeyValuePair<string, object> entry in record)
+            {
+                values += $",{entry.Key}=";
+                if (entry.Value is string)
+                {
+                    values += $"'{entry.Value}'";
+                }
+                else if (entry.Value is int)
+                {
+                    values += $"{Convert.ToInt32(entry.Value)}";
+                }
+                else if (entry.Value is double)
+                {
+                    values += $"{Convert.ToDouble(entry.Value)}";
+                }
+                else if (entry.Value is bool)
+                {
+                    values += $"{entry.Value}";
+                }
+                else if (entry.Value is DateTime val)
+                {
+                    values += $"'{val.ToString("yyyyMMdd")}'";
+                }
+                else
+                {
+                    values += $"'{entry.Value}'";
+                }
+            }
+
+            try
+            {
+                var sql = $"update {tabla} set {values.Substring(1)} {whereclause}";
+                Console.WriteLine(sql);
+                Open();
+                var cmd = new NpgsqlCommand(sql, connection);
+                var result = cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                Close();
+                return result;
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

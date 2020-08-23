@@ -33,6 +33,39 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Charts.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v19.2.Win, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v19.2.UI, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Map.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.TreeMap.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v19.2.UI, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v19.2.UI, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v19.2.Wizard, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v19.2.Presets, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v19.2.Win, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraMap.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeMap.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -78,6 +111,37 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppData.cs" />
+    <Compile Include="customcontrols\EvCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="customcontrols\EvComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="customcontrols\EvDateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="customcontrols\EvIntegerTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="customcontrols\EvLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="customcontrols\EvMaskTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="customcontrols\EvNumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="customcontrols\EvPassWordTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="customcontrols\EvTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="customcontrols\IEvBaseComponent.cs" />
+    <Compile Include="customcontrols\VendedorPickerPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="data\ConexionManager.cs" />
     <Compile Include="data\QueryManager.cs" />
     <Compile Include="Form1.cs">
@@ -87,6 +151,13 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="managers\general\UsuariosManager.cs" />
+    <Compile Include="managers\general\VendedoresManager.cs" />
+    <Compile Include="modalviews\VendedorPickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modalviews\VendedorPickerForm.Designer.cs">
+      <DependentUpon>VendedorPickerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="models\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,11 +167,29 @@
     <Compile Include="utils\clases\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="utils\clases\InnerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="utils\clases\InnerForm.Designer.cs">
+      <DependentUpon>InnerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\general\InUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\general\InUsuarios.Designer.cs">
+      <DependentUpon>InUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\general\Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="views\general\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\general\OutUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\general\OutUsuarios.Designer.cs">
+      <DependentUpon>OutUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="views\general\Principal.cs">
       <SubType>Form</SubType>
@@ -108,9 +197,16 @@
     <Compile Include="views\general\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="customcontrols\VendedorPickerPanel.resx">
+      <DependentUpon>VendedorPickerPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="modalviews\VendedorPickerForm.resx">
+      <DependentUpon>VendedorPickerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -120,8 +216,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="utils\clases\InnerForm.resx">
+      <DependentUpon>InnerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\general\InUsuarios.resx">
+      <DependentUpon>InUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\general\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\general\OutUsuarios.resx">
+      <DependentUpon>OutUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\general\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
