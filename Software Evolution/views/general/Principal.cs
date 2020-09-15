@@ -66,5 +66,45 @@ namespace Software_Evolution.views.general
                 }
             }
         }
+
+        private void Principal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void inventarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maestrosDeDatosGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void preferenciasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cobrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

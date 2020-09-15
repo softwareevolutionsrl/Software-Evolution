@@ -215,6 +215,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="utils\clases\InnerForm.resx">
       <DependentUpon>InnerForm.cs</DependentUpon>
@@ -249,6 +250,20 @@
     <Content Include="evolutionconfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\folder_settings_tools_22597.ico" />
+    <None Include="Resources\Cost-per-Click-%28CPC%29_icon-icons.com_53723.ico" />
+    <None Include="Resources\box_search_product_ean_barcode_icon_148907.ico" />
+    <None Include="Resources\transfer_viral_transmission_infection_human_communication_engagement_icon_133624.ico" />
+    <None Include="Resources\folder_configurations_21361.ico" />
+    <None Include="Resources\programs_97512.ico" />
+    <None Include="Resources\billprinter_119613.ico" />
+    <None Include="Resources\shoppaymentorderbuy-08_icon-icons.com_73885.ico" />
+    <None Include="Resources\buyhand_106610.ico" />
+    <None Include="Resources\3298599-buy-cart-trolley_106992.ico" />
+    <None Include="Resources\employee__icon-icons.com_76984.ico" />
+    <None Include="Resources\usd-crypto-cryptocurrency-cryptocurrencies-cash-money-bank-payment_95707.ico" />
+    <None Include="Resources\Sales-by-payment-method_25410.ico" />
+    <None Include="Resources\help_question_1566.ico" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
